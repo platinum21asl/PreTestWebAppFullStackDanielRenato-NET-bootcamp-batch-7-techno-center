@@ -37,8 +37,8 @@ public partial class DataClassesDatabaseDataContext : System.Data.Linq.DataConte
   partial void DeleteTBCompany(TBCompany instance);
   #endregion
 	
-	public DataClassesDatabaseDataContext() :
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["LatihanConnectionString"].ConnectionString, mappingSource)
+	public DataClassesDatabaseDataContext(string connection) : 
+			base(connection, mappingSource)
 	{
 		OnCreated();
 	}
