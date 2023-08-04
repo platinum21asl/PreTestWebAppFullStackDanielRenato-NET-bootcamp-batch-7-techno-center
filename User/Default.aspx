@@ -1,14 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/assets/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs"  Inherits="Company_Default" %>
-
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/assets/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="User_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderTitle" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderBody" Runat="Server">
-    
-    <a href="Form.aspx" class="btn btn-success btn-icon-split" role="button">
+        
+    <a href="Form.aspx" class="btn btn-success btn-icon-split" role="button" >
         <span class="text-white-50 icon"></span>
         <span class="text-white text">Add New</span>
     </a>
@@ -16,20 +14,27 @@
         <thead>
             <tr>
                 <th scope="col">No</th>
+                <th scope="col">Company</th>
+                <th scope="col">Position</th>
                 <th scope="col">Name</th>
-                <th scope="col">Address</th>
+                <th scope="col">Email</th>
                 <th scope="col">Telephone</th>
-                <th scope="col">Action</
-            </tr
+                <th scope="col">Role</th>
+                <th scope="col">Action</th>
+            </tr>
         </thead>
         <tbody>
-            <asp:Repeater ID="repeaterCompany" runat="server" OnItemCommand="repeaterCompany_ItemCommand">
+            <asp:Repeater ID="repeaterUser" runat="server" OnItemCommand="repeaterUser_ItemCommand">
                 <ItemTemplate>
               <tr>
                   <td><%# Container.ItemIndex + 1 %></td>
+
+                  <td><%# Eval("NameCompany") %></td>
+                  <td><%# Eval("NamePosition") %></td>
                   <td><%# Eval("Name") %></td>
-                  <td><%# Eval("Address") %></td>
+                  <td><%# Eval("Email") %></td>
                   <td><%# Eval("Telephone") %></td>  
+                  <td><%# Eval("Role") %></td>  
                   <td>
                        <div class="text-right fitsize">
                            <asp:Button  CssClass="btn btn-info btn-sm" runat="server" Text="Update" CommandName="Update" CommandArgument='<%# Eval("UID") %>' />
@@ -37,7 +42,7 @@
 
                     </div>
                   </td>
-              </tr
+                </tr>
         </ItemTemplate>
      </asp:Repeater>
   </tbody>

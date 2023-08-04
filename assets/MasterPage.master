@@ -165,7 +165,7 @@
 
         <%--Top--%>
         <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Company name</a>
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Daniel Renato</a>
 
             <ul class="navbar-nav flex-row d-md-none">
                 <li class="nav-item text-nowrap">
@@ -196,11 +196,55 @@
                 <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/Default.aspx">
+                            <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/Dashboard/Default.aspx">
                                 <svg class="bi">
                                     <use xlink:href="#house-fill" />
                                 </svg>
-                                Dashboard</a>
+                                Dashboard
+                            </a>  
+                              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/Company/Default.aspx">
+                                <svg class="bi">
+                                    <use xlink:href="#house-fill" />
+                                </svg>
+                                Company 
+                            </a>
+                             <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/Document/Default.aspx">
+                                <svg class="bi">
+                                    <use xlink:href="#house-fill" />
+                                </svg>
+                                Document 
+                            </a>  
+                            <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/Document_Category/Default.aspx">
+                                <svg class="bi">
+                                    <use xlink:href="#house-fill" />
+                                </svg>
+                                Document Category
+                            </a>  
+                             <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/Position/Default.aspx">
+                                <svg class="bi">
+                                    <use xlink:href="#house-fill" />
+                                </svg>
+                                Position
+                            </a> 
+                            <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/User/Default.aspx">
+                                <svg class="bi">
+                                    <use xlink:href="#house-fill" />
+                                </svg>
+                                User
+                            </a>   
+                            
+                         <%--  <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/Brand/Default.aspx">
+                                <svg class="bi">
+                                    <use xlink:href="#house-fill" />
+                                </svg>
+                                Brand
+                            </a>   
+                            <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/User/Default.aspx">
+                                <svg class="bi">
+                                    <use xlink:href="#house-fill" />
+                                </svg>
+                                User
+                            </a>--%>
                         </li>
                     </ul>
                 </div>

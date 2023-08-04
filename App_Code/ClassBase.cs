@@ -8,12 +8,21 @@ using System.Web;
 /// </summary>
 public abstract class ClassBase
 {
-    internal DataClassesDatabaseDataContext db;
+    internal DataClassesDatabasesPreTestDataContext db;
 
-    public ClassBase(DataClassesDatabaseDataContext _db)
+    public ClassBase(DataClassesDatabasesPreTestDataContext _db)
     {
         db = _db;
 
         HttpContext context = HttpContext.Current;
     }
+
+    //internal DataClassesDatabasesPreTestDataContext dba;
+
+    //public ClassBase(DataClassesDatabasesPreTestDataContext _dba)
+    //{
+    //    dba = _dba;
+
+    //    HttpContext context = HttpContext.Current;
+    //}
 }

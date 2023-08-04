@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PreTestDanielRenato" Class="DataClassesDatabasesPreTestDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Table_Company" Member="Table_Companies">
+    <Type Name="Table_Company">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(225)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(225)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Table_Company_Table_Document" Member="Table_Documents" ThisKey="ID" OtherKey="IDCompany" Type="Table_Document" />
+      <Association Name="Table_Company_Table_User" Member="Table_Users" ThisKey="ID" OtherKey="IDCompany" Type="Table_User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Table_Document" Member="Table_Documents">
+    <Type Name="Table_Document">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IDCompany" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDCategory" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(225)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Table_Company_Table_Document" Member="Table_Company" ThisKey="IDCompany" OtherKey="ID" Type="Table_Company" IsForeignKey="true" />
+      <Association Name="Table_Document_Category_Table_Document" Member="Table_Document_Category" ThisKey="IDCategory" OtherKey="ID" Type="Table_Document_Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Table_Document_Category" Member="Table_Document_Categories">
+    <Type Name="Table_Document_Category">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(225)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Table_Document_Category_Table_Document" Member="Table_Documents" ThisKey="ID" OtherKey="IDCategory" Type="Table_Document" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Table_Position" Member="Table_Positions">
+    <Type Name="Table_Position">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(225)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Table_Position_Table_User" Member="Table_Users" ThisKey="ID" OtherKey="IDPosition" Type="Table_User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Table_User" Member="Table_Users">
+    <Type Name="Table_User">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IDCompany" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDPosition" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(225)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(225)" CanBeNull="true" />
+      <Column Name="Role" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Flag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedAt" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Table_Company_Table_User" Member="Table_Company" ThisKey="IDCompany" OtherKey="ID" Type="Table_Company" IsForeignKey="true" />
+      <Association Name="Table_Position_Table_User" Member="Table_Position" ThisKey="IDPosition" OtherKey="ID" Type="Table_Position" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -5,11 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Company_Default : System.Web.UI.Page
+public partial class Position_Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
         using (DataClassesDatabasesPreTestDataContext db = new DataClassesDatabasesPreTestDataContext())
         {
             if (!IsPostBack)
@@ -17,39 +16,37 @@ public partial class Company_Default : System.Web.UI.Page
                 LoadData(db);
             }
         }
-       
     }
 
     private void LoadData(DataClassesDatabasesPreTestDataContext db)
     {
-        // Memanggil fungsi untuk mendapatkan data karyawan dari tabel "table_company"
-        ControllerCompany dbcompany = new ControllerCompany(db);
+        // Memanggil fungsi untuk mendapatkan data karyawan dari tabel "table_Position"
+        ControllerPosition dbPosition = new ControllerPosition(db);
 
-        var result = dbcompany.Data();
+        var result = dbPosition.Data();
 
         // Mengikat data ke Repeater
-        repeaterCompany.DataSource = result;
-        repeaterCompany.DataBind();
+        repeaterPosition.DataSource = result;
+        repeaterPosition.DataBind();
     }
 
-    protected void repeaterCompany_ItemCommand(object source, RepeaterCommandEventArgs e)
+    protected void repeaterPosition_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
         using (DataClassesDatabasesPreTestDataContext db = new DataClassesDatabasesPreTestDataContext())
         {
-            ControllerCompany dbCompany = new ControllerCompany(db);
+            ControllerPosition dbPosition = new ControllerPosition(db);
             if (e.CommandName == "Update")
             {
-                Response.Redirect("/Company/Form.aspx?uid=" + e.CommandArgument);
+                Response.Redirect("/Position/Form.aspx?uid=" + e.CommandArgument);
             }
             else if (e.CommandName == "Delete")
             {
 
-                var company = db.Table_Companies.FirstOrDefault(x => x.UID.ToString() == e.CommandArgument.ToString());
+                var position = db.Table_Positions.FirstOrDefault(x => x.UID.ToString() == e.CommandArgument.ToString());
 
-                db.Table_Companies.DeleteOnSubmit(company);
-                dbCompany.Delete(e.CommandArgument.ToString());
+                db.Table_Positions.DeleteOnSubmit(position);
+                dbPosition.Delete(e.CommandArgument.ToString());
                 //db.SubmitChanges();
-
                 LoadData(db);
             }
 
